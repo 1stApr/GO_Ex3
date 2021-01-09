@@ -9,6 +9,9 @@ import (
 	"text/template"
 )
 
+var templates = template.Must(template.ParseFiles("edit.html"))
+var validPath = regexp.MustCompile("^/(edit|save|view)/([a-zA-Z0-9]+)$")
+
 type Page struct {
 	Title string
 	Body  []byte
@@ -84,9 +87,6 @@ func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 }
-
-var templates = template.Must(template.ParseFiles("edit.html"))
-var validPath = regexp.MustCompile("^/(edit|save|view)/([a-zA-Z0-9]+)$")
 
 func main() {
 
