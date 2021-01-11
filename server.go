@@ -19,7 +19,6 @@ type Page struct {
 
 func (p *Page) save() error {
 	filename := p.Title + ".txt"
-	//return ioutil.WriteFile(filename, p.Body, 0600)
 
 	f, err := os.OpenFile(filename,
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
@@ -33,6 +32,7 @@ func (p *Page) save() error {
 	}
 	return nil
 }
+
 func loadPage(title string) (*Page, error) {
 	filename := title + ".txt"
 	body, err := ioutil.ReadFile(filename)
