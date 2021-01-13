@@ -42,11 +42,11 @@ new Vue({
 
         join: function () {
             if (!this.email) {
-                Materialize.toast('You must enter an email', 2000);
+                Materialize.toast('Chưa nhập email anh ơi!', 2000);
                 return
             }
             if (!this.username) {
-                Materialize.toast('You must choose a username', 2000);
+                Materialize.toast('Chưa nhập username anh ơi!', 2000);
                 return
             }
             this.email = $('<p>').html(this.email).text();
@@ -55,7 +55,7 @@ new Vue({
         },
 
         gravatarURL: function(email) {
-            return 'http://www.gravatar.com/avatar/' + CryptoJS.MD5(email);
+            return './index.jpeg';
         }
     }
 });
